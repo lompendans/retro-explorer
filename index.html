@@ -238,6 +238,20 @@ td .note { color: var(--ink-soft); }
 .c1 { background: #2f7fd8; } .c2 { background: #e0a100; } .c3 { background: #e46b0c; }
 .c4 { background: #3c9b1c; } .c5 { background: #7b48c4; } .c6 { background: #1b8fb0; }
 
+/* privacy */
+.privacy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.pcard { min-width: 0; padding: 22px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); }
+.pcard h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font: 600 17px var(--display); }
+.pdot { flex: none; width: 14px; height: 14px; border-radius: 50%; box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 1px 2px rgba(0, 0, 0, 0.25); }
+.pdot.stay { background: radial-gradient(circle at 35% 30%, #c4f19c, #3c9312); }
+.pdot.leaves { background: radial-gradient(circle at 35% 30%, #a9d4ff, #1d6fd0); }
+.pcard ul { margin: 0; padding-left: 18px; display: grid; gap: 10px; font-size: 14px; color: var(--ink-soft); }
+.pcard b { color: var(--ink); }
+.pcard code, .pnote code, details code { font: 12px var(--mono); overflow-wrap: anywhere; }
+.pnote { margin: 18px 0 0; max-width: 80ch; font-size: 13px; color: var(--ink-soft); }
+.pnote b { color: var(--ink); }
+@media (max-width: 720px) { .privacy { grid-template-columns: minmax(0, 1fr); } }
+
 /* faq */
 .faq { display: grid; gap: 10px; max-width: 820px; }
 details { border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
@@ -277,6 +291,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
       <a href="#download">Download</a>
       <a href="#compatibility">Compatibility</a>
       <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
       <a href="#faq">FAQ</a>
     </nav>
   </div>
@@ -395,6 +410,32 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
     </div>
   </section>
 
+  <section id="privacy">
+    <div class="wrap">
+      <h2>Privacy</h2>
+      <p class="sub">Retro Explorer has no accounts, no ads and no analytics. It never sends anything to us, because there is no Retro Explorer server.</p>
+      <div class="privacy">
+        <div class="pcard">
+          <h3><span class="pdot stay" aria-hidden="true"></span>Stays on your PC</h3>
+          <ul>
+            <li><b>Favorites, history and typed addresses</b> are saved in <code>%AppData%\RetroExplorer\settings.json</code>.</li>
+            <li><b>Cookies, cache and site logins</b> are saved in <code>%AppData%\RetroExplorer\WebData</code>.</li>
+            <li><b>Tools &gt; Delete Browsing History</b> clears history, typed addresses, cookies and cached files. Deleting the <code>RetroExplorer</code> folder in <code>%AppData%</code> removes everything.</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <h3><span class="pdot leaves" aria-hidden="true"></span>Goes to other companies</h3>
+          <ul>
+            <li><b>Websites you visit</b> receive your requests directly, the same as in any browser.</li>
+            <li><b>Bing</b> receives your searches from the search box, and anything you type in the address bar that isn't a web address.</li>
+            <li><b>Microsoft</b> makes the WebView2 engine that shows the pages. Microsoft Defender SmartScreen checks addresses against its list of dangerous sites, and the engine may send diagnostic data based on your Windows settings. See the <a href="https://privacy.microsoft.com/privacystatement" rel="noopener">Microsoft Privacy Statement</a>.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="pnote"><b>This website:</b> this download page is hosted on GitHub Pages and loads its fonts from Google Fonts, so GitHub and Google can see your IP address when you visit. It sets no cookies and has no tracking. See the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a> and the <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.</p>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
       <h2>Questions</h2>
@@ -411,7 +452,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
 
 <footer>
   <div class="wrap">
-    <span>&copy; 2026 Retro Explorer. Free for personal use.</span>
+    <span>&copy; 2026 Retro Explorer. Free for personal use. &middot; <a href="#privacy">Privacy</a></span>
     <span>Windows and Microsoft Edge are trademarks of Microsoft Corporation.</span>
   </div>
 </footer>
